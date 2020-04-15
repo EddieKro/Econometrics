@@ -188,7 +188,7 @@ def t_val_pred(y,y_pred):
     return  r * np.sqrt(k/(1-r_s))
 
 def evaluate_hypothesis(val,crit):
-    sign = '>' if abs(val)>crit else '<'
+    sign = '>' if val>crit else '<'
     msg = 'hypothesis rejected' if val>crit else 'hypothesis must be examined further'
 
     return sign,msg
