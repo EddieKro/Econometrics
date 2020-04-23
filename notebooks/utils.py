@@ -215,6 +215,12 @@ def calcualte_confidence_bound(x,y,y_pred,t_value):
     sp = s_p(x,y,y_pred)
     return sp*t_value
 
+def calc_delta(X,y,y_pred,t_crit=1.96,i=10):
+    n,e = X.shape[0],y - y_pred
+    su_2 = n * np.var(e) / (n-2)
+    se = np.sqrt(su_2 * (n + 1 + (X-X.mean())**2 / X.var())/ n)
+    delta = se*t_crit
+    return delta[-i:]
 
 def confidence_interval_final(X,y,y_pred,t_crit = 1.96):
     n,e = X.shape[0],y - y_pred
