@@ -6,6 +6,7 @@
 
 import numpy as np
 from sklearn.metrics import mean_squared_error
+from sklearn.preprocessing import PolynomialFeatures
 
 
 # In[ ]:
@@ -229,7 +230,6 @@ def confidence_interval_final(X,y,y_pred,t_crit = 1.96):
     se = np.sqrt(su_2 * (n + 1 + (X-X.mean())**2 / X.var())/ n)
     delta = se * t_crit
     return y_pred - delta, y_pred + delta
-
 # In[ ]:
 
 
